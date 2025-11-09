@@ -320,7 +320,7 @@ const Index = () => {
             <Icon name="Zap" className="text-primary" size={28} />
             <span className="text-xl font-bold">Peremotka074</span>
           </div>
-          <p className="text-white/80">© 2024 ЭлектроСервис. Все права защищены.</p>
+          <p className="text-white/80">© 2016 УралРемЦентр. Все права защищены.</p>
         </div>
       </footer>
     </div>
