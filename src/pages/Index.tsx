@@ -365,7 +365,7 @@ const Index = () => {
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Icon name="Zap" className="text-primary" size={28} />
-            <span className="text-xl font-bold">ЭлектроСервис</span>
+            <span className="text-xl font-bold">Peremotka074</span>
           </div>
           <p className="text-white/80">© 2024 ЭлектроСервис. Все права защищены.</p>
         </div>
