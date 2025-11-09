@@ -71,7 +71,7 @@ const Index = () => {
               <img 
                 src="https://cdn.poehali.dev/projects/0d85afc5-838f-44d7-a1eb-96f0531c8c3f/files/db198f19-116b-4dcd-8f20-f6b747f0e232.jpg" 
                 alt="Ремонт электродвигателей"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-right"
               />
             </div>
           </div>
