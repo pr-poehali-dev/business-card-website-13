@@ -98,7 +98,7 @@ const Index = () => {
             <div>
               <h2 className="text-4xl font-bold mb-6 text-accent">О нашей компании</h2>
               <p className="text-lg text-foreground mb-4">
-                <strong>ЭлектроСервис</strong> — это команда профессионалов с опытом работы более 15 лет 
+                <strong>Peremotka074</strong> — это команда профессионалов с опытом работы более 15 лет 
                 в области ремонта и обслуживания электродвигателей промышленного назначения.
               </p>
               <p className="text-lg text-muted-foreground mb-4">
