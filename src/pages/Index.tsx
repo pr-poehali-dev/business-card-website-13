@@ -228,29 +228,6 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:shadow-lg transition-all">
-              <CardContent className="pt-6">
-                <Icon name="Truck" className="text-primary mb-4" size={48} />
-                <h3 className="text-xl font-bold mb-3">Выездные работы</h3>
-                <p className="text-muted-foreground mb-4">
-                  Ремонт и обслуживание оборудования на территории заказчика
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2">
-                    <Icon name="Minus" size={16} className="text-primary" />
-                    <span>Демонтаж оборудования</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Icon name="Minus" size={16} className="text-primary" />
-                    <span>Транспортировка</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Icon name="Minus" size={16} className="text-primary" />
-                    <span>Монтаж после ремонта</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
