@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Index = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,11 +16,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="fixed top-0 w-full bg-accent/95 backdrop-blur-sm z-50 border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <Icon name="Zap" className="text-primary" size={32} />
-            <span className="text-2xl font-bold text-white">Peremotka074</span>
+            <Icon name="Zap" className="text-primary" size={28} />
+            <span className="text-xl md:text-2xl font-bold text-white">Peremotka074</span>
           </div>
+          <button 
+            className="md:hidden text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={24} />
+          </button>
           <nav className="hidden md:flex gap-6">
             <a href="#home" className="text-white hover:text-primary transition-colors">Главная</a>
             <a href="#about" className="text-white hover:text-primary transition-colors">О компании</a>
@@ -27,30 +34,40 @@ const Index = () => {
             <a href="#contacts" className="text-white hover:text-primary transition-colors">Контакты</a>
           </nav>
         </div>
+        {isMobileMenuOpen && (
+          <nav className="md:hidden bg-accent border-t border-border">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-primary transition-colors py-2">Главная</a>
+              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-primary transition-colors py-2">О компании</a>
+              <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-primary transition-colors py-2">Услуги</a>
+              <a href="#contacts" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-primary transition-colors py-2">Контакты</a>
+            </div>
+          </nav>
+        )}
       </header>
 
-      <section id="home" className="pt-24 pb-16 px-4">
+      <section id="home" className="pt-20 md:pt-24 pb-12 md:pb-16 px-4">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="animate-fade-in">
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-accent leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 text-accent leading-tight">
                 Ремонт и перемотка электродвигателей
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-8">
                 Профессиональное обслуживание промышленного оборудования. 
                 Качество, надёжность, опыт более 15 лет.
               </p>
-              <div className="flex gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 w-full sm:w-auto">
                   <Icon name="Phone" size={20} className="mr-2" />
                   Заказать звонок
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto">
                   Узнать больше
                 </Button>
               </div>
             </div>
-            <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative h-[300px] md:h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
               <img 
                 src="https://cdn.poehali.dev/projects/0d85afc5-838f-44d7-a1eb-96f0531c8c3f/files/db198f19-116b-4dcd-8f20-f6b747f0e232.jpg" 
                 alt="Ремонт электродвигателей"
@@ -59,7 +76,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-16">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-16">
             <Card className="border-2 hover:border-primary transition-colors">
               <CardContent className="pt-6">
                 <Icon name="Award" className="text-primary mb-4" size={40} />
@@ -85,27 +102,27 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-16 px-4 bg-muted/30">
+      <section id="about" className="py-12 md:py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="relative h-[250px] md:h-[400px] rounded-lg overflow-hidden shadow-xl order-2 lg:order-1">
               <img 
                 src="https://cdn.poehali.dev/projects/0d85afc5-838f-44d7-a1eb-96f0531c8c3f/files/20da3e66-c592-449d-b4a1-2295c82a9fbc.jpg" 
                 alt="Перемотка двигателей"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div>
-              <h2 className="text-4xl font-bold mb-6 text-accent">О нашей компании</h2>
-              <p className="text-lg text-foreground mb-4">
+            <div className="order-1 lg:order-2">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-accent">О нашей компании</h2>
+              <p className="text-base md:text-lg text-foreground mb-3 md:mb-4">
                 <strong>Peremotka074</strong> — это команда профессионалов с опытом работы более 15 лет 
                 в области ремонта и обслуживания электродвигателей промышленного назначения.
               </p>
-              <p className="text-lg text-muted-foreground mb-4">
+              <p className="text-base md:text-lg text-muted-foreground mb-4">
                 Мы специализируемся на ремонте электродвигателей любой мощности и сложности, 
                 выполняем перемотку обмоток, диагностику и восстановление оборудования.
               </p>
-              <div className="grid grid-cols-2 gap-4 mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mt-6 md:mt-8">
                 <div className="flex items-center gap-3">
                   <Icon name="CheckCircle2" className="text-primary" size={24} />
                   <span className="text-foreground">Современное оборудование</span>
@@ -128,10 +145,10 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-16 px-4">
+      <section id="services" className="py-12 md:py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-accent">Наши услуги</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-accent">Наши услуги</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             <Card className="border-2 hover:shadow-lg transition-all">
               <CardContent className="pt-6">
                 <Icon name="Settings" className="text-primary mb-4" size={48} />
@@ -232,12 +249,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className="py-16 px-4 bg-muted/30">
+      <section id="contacts" className="py-12 md:py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-accent">Контакты</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-accent">Контакты</h2>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Свяжитесь с нами</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Свяжитесь с нами</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Icon name="MapPin" className="text-primary mt-1" size={24} />
@@ -314,7 +331,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="bg-accent text-white py-8 px-4">
+      <footer className="bg-accent text-white py-6 md:py-8 px-4">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Icon name="Zap" className="text-primary" size={28} />
